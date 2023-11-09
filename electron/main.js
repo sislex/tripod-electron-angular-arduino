@@ -1,6 +1,8 @@
 const { app, BrowserWindow} = require('electron');
 const { getMessages, sendMessage} = require('./messagesToWeb');
 const { setupSerialPort } = require('./serialport');
+const {default: installExtension, REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS} = require("electron-devtools-installer");
+
 
 const path = require('path');
 const launchMode = app.commandLine.getSwitchValue('mode');
@@ -21,6 +23,14 @@ function createWindow(launchMode) {
 
   if (launchMode === 'dev') {
     win.loadURL('http://localhost:4200?channelName=' + channelName);
+    win.webContents.once("dom-ready", async () => {
+      await installExtension([REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS])
+        .then((name) => console.log(`Added Extension:  ${name}`))
+        .catch((err) => console.log("An error occurred: ", err))
+        .finally(() => {
+          win.webContents.openDevTools();
+        });
+    });
   } else {
     win.loadFile('../dist/tripod-electron-angular-arduino/index.html', {
       query: { 'channelName': channelName }

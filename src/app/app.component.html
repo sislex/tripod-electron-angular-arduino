@@ -1,3 +1,7 @@
 TripodElectronAngularArduino
 
 <button (click)="onButtonClick()">click</button>
+
+<br>
+
+{{(getChannelName$ | async) || 'no data'}}
