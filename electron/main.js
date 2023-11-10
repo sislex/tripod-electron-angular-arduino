@@ -1,7 +1,8 @@
 const { app, BrowserWindow} = require('electron');
-const { getMessages, sendMessage} = require('./messagesToWeb');
-const { setupSerialPort } = require('./serialport');
-const {default: installExtension, REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS} = require("electron-devtools-installer");
+const { getMessages, sendMessage} = require('./messagesWeb');
+
+const { default: installExtension, REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS} = require("electron-devtools-installer");
+const { messagesHandlerFromWeb} = require("./messagesHandlerFromWeb");
 
 
 const path = require('path');
@@ -45,11 +46,11 @@ function createWindow(launchMode) {
   });
 
   win.webContents.on('did-finish-load', () => {
-    getMessages(channelName, (event, arg) => {
-      console.log(arg);
+    getMessages(channelName, (event, message) => {
+      messagesHandlerFromWeb(message, { win, channelName });
     });
-    sendMessage(win, channelName, 'Сообщение из Electron!!!'); // Отправить сообщение в Angular через канал
-    setupSerialPort(); // Инициализируем обработчики serialPort
+    // sendMessage(win, channelName, 'Сообщение из Electron!!!'); // Отправить сообщение в Angular через канал
+    // setupSerialPort(); // Инициализируем обработчики serialPort
   });
 }
 

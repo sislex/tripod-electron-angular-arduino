@@ -1,9 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {IpcService} from '../services/ipc.service';
+import {IpcService} from './services/ipc.service';
 import {ActivatedRoute} from '@angular/router';
 import {select, Store} from '@ngrx/store';
 import {setChannelName} from './state/config/config.actions';
 import {getChannelName} from './state/config/config.selectors';
+import {take} from 'rxjs';
+import {setUsbList} from './state/usb/usb.actions';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +15,7 @@ import {getChannelName} from './state/config/config.selectors';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'tripod-electron-angular-arduino';
   getChannelName$ = this.store.pipe(select(getChannelName));
+  private channelName = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -28,14 +31,18 @@ export class AppComponent implements OnInit, OnDestroy {
         this.store.dispatch(setChannelName({ channelName }));
       }
 
+      this.ipcService.on(channelName, (event, json) => {
+        console.log(json); // arg - данные, отправленные из Electron
+        if (json) {
+          const jsonObj = JSON.parse(json);
+          const event: string = jsonObj.event;
+          if (event === 'USB_DEVICES') {
+            const usbList = jsonObj.data.map((usb: any) => usb.path);
+            this.store.dispatch(setUsbList({ usbList }));
+          }
+        }
+      });
     });
-
-
-    this.ipcService.on('electron-angular', (event, arg) => {
-      console.log(arg); // arg - данные, отправленные из Electron
-      // Здесь вы можете выполнить действия на основе полученных данных
-    });
-
   }
 
   ngOnDestroy() {
@@ -49,9 +56,15 @@ export class AppComponent implements OnInit, OnDestroy {
     // Дополнительная логика обработки
   }
 
-  onButtonClick() {
+  onButtonClick(command: string) {
     if (this.ipcService.isElectron()) {
-      this.ipcService.send('electron-angular', 'Button was clicked!');
+      if (command === 'GET_USB_DEVICES') {
+        this.getChannelName$.pipe(take(1)).subscribe((channelName: string) => {
+          const event = 'GET_USB_DEVICES';
+          const message = JSON.stringify({event});
+          this.ipcService.send(channelName, message);
+        });
+      }
     }
   }
 }
