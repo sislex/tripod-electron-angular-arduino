@@ -6,6 +6,7 @@ import {setChannelName} from './state/config/config.actions';
 import {getChannelName} from './state/config/config.selectors';
 import {take} from 'rxjs';
 import {setUsbList} from './state/usb/usb.actions';
+import {getUsbList} from './state/usb/usb.selectors';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import {setUsbList} from './state/usb/usb.actions';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'tripod-electron-angular-arduino';
   getChannelName$ = this.store.pipe(select(getChannelName));
+  getUsbList$ = this.store.pipe(select(getUsbList));
   private channelName = '';
 
   constructor(

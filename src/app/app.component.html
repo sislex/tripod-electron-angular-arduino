@@ -3,6 +3,15 @@
   <button (click)="onButtonClick('GET_USB_DEVICES')">get usb devices</button>
 </div>
 
+<div *ngIf="(getUsbList$ | async)?.length">
+  <h2>USB Devices</h2>
+  <ul>
+    <li *ngFor="let device of (getUsbList$ | async)">
+      {{device}}
+    </li>
+  </ul>
+</div>
+
 
 <br>
 
