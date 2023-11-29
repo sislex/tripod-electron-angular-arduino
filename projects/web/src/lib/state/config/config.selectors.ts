@@ -3,7 +3,7 @@ import {CONFIG_FEATURE_KEY, ConfigState} from './config.reducer';
 
 export const selectFeature = createFeatureSelector<ConfigState>(CONFIG_FEATURE_KEY);
 
-export const getChannelName = createSelector(
-  selectFeature,
-  (state: ConfigState) => state.channelName
-);
+// export const getChannelName = createSelector(
+//   selectFeature,
+//   (state: ConfigState) => state.channelName
+// );

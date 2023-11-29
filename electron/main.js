@@ -11,9 +11,10 @@ const channelName = 'electron-angular';
 let win;
 
 function createWindow(launchMode) {
+  console.log('createWindow');
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1400,
+    height: 800,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
@@ -23,34 +24,37 @@ function createWindow(launchMode) {
   });
 
   if (launchMode === 'dev') {
-    win.loadURL('http://localhost:4200?channelName=' + channelName);
-    win.webContents.once("dom-ready", async () => {
-      await installExtension([REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS])
-        .then((name) => console.log(`Added Extension:  ${name}`))
-        .catch((err) => console.log("An error occurred: ", err))
-        .finally(() => {
-          win.webContents.openDevTools();
-        });
-    });
+    win.loadURL('http://localhost:4200');
   } else {
-    win.loadFile('../dist/tripod-electron-angular-arduino/index.html', {
-      query: { 'channelName': channelName }
-    });
+    win.loadFile('../dist/tripod-electron-angular-arduino/index.html');
   }
 
-  // Откройте DevTools.
-  win.webContents.openDevTools();
+  win.webContents.once("dom-ready", async () => {
+    await installExtension([REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS])
+      .then((name) => console.log(`Added Extension:  ${name}`))
+      .catch((err) => console.log("An error occurred: ", err))
+      .finally(() => {
+        win.webContents.openDevTools();
+
+        getMessages(channelName, (event, message) => {
+          messagesHandlerFromWeb(message, { win, channelName });
+        });
+
+        setTimeout(() => { // без таймаута не работает redux devtools
+          if (launchMode === 'dev') {
+            win.loadURL('http://localhost:4200');
+          } else {
+            win.loadFile('../dist/tripod-electron-angular-arduino/index.html');
+          }
+
+        }, 0);
+      });
+  });
+
+
 
   win.on('closed', () => {
     win = null;
-  });
-
-  win.webContents.on('did-finish-load', () => {
-    getMessages(channelName, (event, message) => {
-      messagesHandlerFromWeb(message, { win, channelName });
-    });
-    // sendMessage(win, channelName, 'Сообщение из Electron!!!'); // Отправить сообщение в Angular через канал
-    // setupSerialPort(); // Инициализируем обработчики serialPort
   });
 }
 

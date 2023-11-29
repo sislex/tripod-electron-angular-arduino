@@ -8,16 +8,16 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'tripod-electron-angular-arduino';
-  channelName = '';
+  channelName = 'electron-angular';
 
   constructor(
     private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.channelName = params['channelName'];
-    });
+    // this.route.queryParams.subscribe(params => {
+    //   this.channelName = params['channelName'];
+    // });
   }
 
 

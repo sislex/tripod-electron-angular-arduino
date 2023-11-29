@@ -5,13 +5,17 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:prod": "ng serve --configuration production",
     "build": "ng build",
+    "build:prod": "ng build --configuration production --base-href ./",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "electron": "electron .",
     "electron-build": "ng build --base-href ./ && electron electron/main.js",
+    "electron-build:prod": "npm run build:prod && electron electron/main.js",
     "electron-start": "electron electron/main.js --mode=dev",
-    "electron-angular-start": "concurrently \"npm run start\" \"wait-on http://localhost:4200 && electron electron/main.js --mode=dev\""
+    "electron-angular-start": "concurrently \"npm run start\" \"wait-on http://localhost:4200 && electron electron/main.js --mode=dev\"",
+    "electron-angular:prod-start": "concurrently \"npm run start:prod\" \"wait-on http://localhost:4200 && electron electron/main.js --mode=dev\""
   },
   "private": true,
   "dependencies": {
@@ -23,6 +27,7 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+    "@ngrx/effects": "^16.3.0",
     "@ngrx/store": "^16.3.0",
     "@ngrx/store-devtools": "^16.3.0",
     "rxjs": "~7.8.0",
