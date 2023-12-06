@@ -9,6 +9,7 @@ import {EffectsModule} from '@ngrx/effects';
 import {UsbEffects} from './state/usb/usb.effects';
 import {MESSAGES_FEATURE_KEY, messagesReducer} from './state/messages/messages.reducer';
 import {MessagesEffects} from './state/messages/messages.effects';
+import {UiModule} from '../../../ui/src/lib/ui.module';
 
 const state = [
   StoreModule.forRoot({}),
@@ -28,6 +29,7 @@ const state = [
   imports: [
     CommonModule,
     ...state,
+    UiModule,
   ],
   exports: [
     WebComponent
