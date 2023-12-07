@@ -377,13 +377,13 @@
     "modules": [
         {
             "name": "UiModule",
-            "id": "module-UiModule-7db1980a8a7810337c606c06e24f80881088a19811b208eb5ab3ff81b023b548a57bebd738a76e1934728b15c68717d671b19f5c63e8bd587fc48cd26dd92009",
+            "id": "module-UiModule-8df749c2f2bc6b3758acf25c18812155db115c61a8d54989d4ba307365bf473c24e050a4a55e0199c0f71d16390a41a654847f18829512da58a85aa1cb8d97b1",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/ui/src/lib/ui.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { UiComponent } from './components/ui/ui.component';\n\n\n\n@NgModule({\n  declarations: [\n    UiComponent\n  ],\n  imports: [\n  ],\n  exports: [\n    UiComponent\n  ]\n})\nexport class UiModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { UiComponent } from './components/ui/ui.component';\n\n@NgModule({\n  declarations: [\n    UiComponent\n  ],\n  imports: [\n  ],\n  exports: [\n    UiComponent\n  ]\n})\nexport class UiModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -503,6 +503,16 @@
                 "defaultValue": "{\n  title: 'Example/Page',\n  component: Page,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      declarations: [Button, Header],\n      imports: [CommonModule],\n    }),\n  ],\n}"
             },
             {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui/src/lib/components/ui/ui.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<UiComponent>",
+                "defaultValue": "{\n  title: 'UI Components/UiComponent',\n  component: UiComponent,\n  render: (args: UiComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -517,6 +527,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/ui/src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui/src/lib/components/ui/ui.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -573,6 +593,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<Page>",
                 "file": "projects/ui/src/stories/Page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<UiComponent>",
+                "file": "projects/ui/src/lib/components/ui/ui.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -697,6 +728,28 @@
                     "defaultValue": "{\n  title: 'Example/Page',\n  component: Page,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      declarations: [Button, Header],\n      imports: [CommonModule],\n    }),\n  ],\n}"
                 }
             ],
+            "projects/ui/src/lib/components/ui/ui.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui/src/lib/components/ui/ui.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<UiComponent>",
+                    "defaultValue": "{\n  title: 'UI Components/UiComponent',\n  component: UiComponent,\n  render: (args: UiComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui/src/lib/components/ui/ui.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+                }
+            ],
             "projects/ui/.storybook/preview.ts": [
                 {
                     "name": "preview",
@@ -751,6 +804,19 @@
                     "description": "",
                     "kind": 183
                 }
+            ],
+            "projects/ui/src/lib/components/ui/ui.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<UiComponent>",
+                    "file": "projects/ui/src/lib/components/ui/ui.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
             ]
         }
     },
@@ -774,6 +840,26 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "UiComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui/src/lib/components/ui/ui.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui/src/lib/components/ui/ui.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

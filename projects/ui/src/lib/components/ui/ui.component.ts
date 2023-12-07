@@ -3,9 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'lib-ui',
   template: `
-    <p>
-      ui works!
-    </p>
+    <mat-slide-toggle>Toggle me!</mat-slide-toggle>
   `,
   styles: [
   ]
