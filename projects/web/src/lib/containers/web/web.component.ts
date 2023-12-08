@@ -4,7 +4,7 @@ import {getUsbList} from '../../state/usb/usb.selectors';
 import {sendMessage, setChannelNameAndSubscribe} from '../../state/messages/messages.actions';
 
 @Component({
-  selector: 'lib-web',
+  selector: 'web',
   templateUrl: './web.component.html',
   styles: [
   ],

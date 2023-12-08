@@ -1,7 +1,6 @@
 /*
- * Public API Surface of web
+ * Public API Surface of main
  */
 
 export * from './lib/web.service';
-export * from './lib/containers/web/web.component';
 export * from './lib/web.module';

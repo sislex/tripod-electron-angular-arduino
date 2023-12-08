@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { WebComponent } from './containers/web/web.component';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {CONFIG_FEATURE_KEY, configReducer} from './state/config/config.reducer';
@@ -10,6 +9,9 @@ import {UsbEffects} from './state/usb/usb.effects';
 import {MESSAGES_FEATURE_KEY, messagesReducer} from './state/messages/messages.reducer';
 import {MessagesEffects} from './state/messages/messages.effects';
 import {UiModule} from '../../../ui/src/lib/ui.module';
+import {WebComponent} from './containers/web/web.component';
+import {MainComponent} from './containers/main/main.component';
+import {NavPanelComponent} from './containers/nav-panel/nav-panel.component';
 
 const state = [
   StoreModule.forRoot({}),
@@ -24,15 +26,17 @@ const state = [
 
 @NgModule({
   declarations: [
-    WebComponent
+    WebComponent,
+    MainComponent,
+    NavPanelComponent,
   ],
   imports: [
-    CommonModule,
     ...state,
+    CommonModule,
     UiModule,
   ],
   exports: [
-    WebComponent
+    WebComponent,
   ]
 })
 export class WebModule { }
