@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'nav-panel',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-panel.component.scss']
 })
 export class NavPanelComponent {
-
+  @Input() message: string = '';
 }

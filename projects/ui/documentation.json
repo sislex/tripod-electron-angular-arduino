@@ -255,6 +255,50 @@
             "extends": []
         },
         {
+            "name": "NavPanelComponent",
+            "id": "component-NavPanelComponent-4961af6e37e555986261a321cc8f4795f87f4a2efdb5bad0606a9763f3a8c78885ac043d0ed69b43da6956185295429f6d421ee6c924fbdc977ac4108e25c59c",
+            "file": "projects/ui/src/lib/components/nav-panel/nav-panel.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "nav-panel",
+            "styleUrls": [
+                "./nav-panel.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./nav-panel.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'nav-panel',\n  templateUrl: './nav-panel.component.html',\n  styleUrls: ['./nav-panel.component.scss']\n})\nexport class NavPanelComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\n  display: block;\n  height: 100%;\n  width: 100%;\n\n  .example-spacer {\n    flex: 1 1 auto;\n  }\n}\n",
+                    "styleUrl": "./nav-panel.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<mat-toolbar color=\"primary\">\n  <button mat-icon-button class=\"example-icon\" aria-label=\"Example icon-button with menu icon\">\n    <mat-icon>menu</mat-icon>\n  </button>\n  <span>My App</span>\n  <span class=\"example-spacer\"></span>\n  <button mat-icon-button class=\"example-icon favorite-icon\" aria-label=\"Example icon-button with heart icon\">\n    <mat-icon>favorite</mat-icon>\n  </button>\n  <button mat-icon-button class=\"example-icon\" aria-label=\"Example icon-button with share icon\">\n    <mat-icon>share</mat-icon>\n  </button>\n</mat-toolbar>\n"
+        },
+        {
             "name": "PageComponent",
             "id": "component-PageComponent-badb6d8cee577661da79ba82ad8f599604afd40fa34e36c7b88d71d77a4fbc7184228cba2f0d73e255d0b7bc51c4c7a8e7b0128b3624aeb0255abab9030fa59a",
             "file": "projects/ui/src/stories/page.component.ts",
@@ -339,19 +383,22 @@
             "extends": []
         },
         {
-            "name": "UiComponent",
-            "id": "component-UiComponent-ea0f0cba33c7c01e488040246c7db5ebcfa816f6f9f4f3c768b6c850ba23d7c41a5076aca3f42b15071876267a85ca83b382f6951c262f664aec15c7a1abc50e",
-            "file": "projects/ui/src/lib/components/ui/ui.component.ts",
+            "name": "PageLayoutComponent",
+            "id": "component-PageLayoutComponent-990109939e3b2d564b7541da397840cefb36bab12de5c315296fae5000d080e0ffe1cd3b72d5ae6703c68735bb4f947b0e15879f9aa0781c5fb521372bd1325e",
+            "file": "projects/ui/src/lib/layouts/page-layout/page-layout.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "lib-ui",
-            "styleUrls": [],
+            "selector": "lib-page-layout",
+            "styleUrls": [
+                "./page-layout.component.scss"
+            ],
             "styles": [],
-            "template": "<p>\n  ui works!\n</p>\n",
-            "templateUrl": [],
+            "templateUrl": [
+                "./page-layout.component.html"
+            ],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [],
@@ -367,23 +414,73 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-ui',\n  template: `\n    <p>\n      ui works!\n    </p>\n  `,\n  styles: [\n  ]\n})\nexport class UiComponent {\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-page-layout',\n  templateUrl: './page-layout.component.html',\n  styleUrls: ['./page-layout.component.scss']\n})\nexport class PageLayoutComponent {\n\n}\n",
             "assetsDirs": [],
-            "styleUrlsData": "",
+            "styleUrlsData": [
+                {
+                    "data": ":host {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n\n  .top-bar {\n    flex: 0 0 auto;\n  }\n\n  .body {\n    flex: 1 1 auto;\n    overflow: auto;\n  }\n\n  .footer {\n    flex: 0 0 auto;\n  }\n}\n",
+                    "styleUrl": "./page-layout.component.scss"
+                }
+            ],
             "stylesData": "",
-            "extends": []
+            "extends": [],
+            "templateData": "<div class=\"top-bar\">\n  <ng-content select=\"[toplBar]\"></ng-content>\n</div>\n<div class=\"body\">\n  <ng-content select=\"[body]\"></ng-content>\n</div>\n<div class=\"footer\">\n  footer\n</div>\n"
+        },
+        {
+            "name": "PagesLayoutComponent",
+            "id": "component-PagesLayoutComponent-f5af6bc56d3b9772d23bbfd08b8889b0dc7cb76a95408c37cf3ea364283e7166625ab524a442b9e663857bfddcea904c7227c2d7ec61f455b1170c01805fad62",
+            "file": "projects/ui/src/lib/layouts/pages-layout/pages-layout.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "pages-layout",
+            "styleUrls": [
+                "./pages-layout.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./pages-layout.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'pages-layout',\n  templateUrl: './pages-layout.component.html',\n  styleUrls: ['./pages-layout.component.scss']\n})\nexport class PagesLayoutComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\n  display: block;\n  height: 100%;\n  width: 100%;\n}\n",
+                    "styleUrl": "./pages-layout.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<ng-content></ng-content>\n"
         }
     ],
     "modules": [
         {
             "name": "UiModule",
-            "id": "module-UiModule-8df749c2f2bc6b3758acf25c18812155db115c61a8d54989d4ba307365bf473c24e050a4a55e0199c0f71d16390a41a654847f18829512da58a85aa1cb8d97b1",
+            "id": "module-UiModule-9d14cf29bc3fbebbf784d574e0b61e64d63241c69ad22d79c92e1a1c6c0f3f62da02208586af444fd37e84ecc4b5a62b42b0eac86751ea6019fd2bf358bd14c2",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/ui/src/lib/ui.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { UiComponent } from './components/ui/ui.component';\n\n@NgModule({\n  declarations: [\n    UiComponent\n  ],\n  imports: [\n  ],\n  exports: [\n    UiComponent\n  ]\n})\nexport class UiModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport {MatSlideToggleModule} from '@angular/material/slide-toggle';\nimport {PageLayoutComponent} from './layouts/page-layout/page-layout.component';\nimport {PagesLayoutComponent} from './layouts/pages-layout/pages-layout.component';\nimport {NavPanelComponent} from './components/nav-panel/nav-panel.component';\nimport {MatToolbarModule} from '@angular/material/toolbar';\nimport {MatIconModule} from '@angular/material/icon';\nimport {MatButtonModule} from '@angular/material/button';\n\n@NgModule({\n  declarations: [\n    PagesLayoutComponent,\n    PageLayoutComponent,\n    NavPanelComponent,\n  ],\n  imports: [\n    MatSlideToggleModule,\n    MatToolbarModule,\n    MatIconModule,\n    MatButtonModule,\n  ],\n  exports: [\n    PagesLayoutComponent,\n    PageLayoutComponent,\n    NavPanelComponent,\n  ]\n})\nexport class UiModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -393,7 +490,13 @@
                     "type": "declarations",
                     "elements": [
                         {
-                            "name": "UiComponent"
+                            "name": "NavPanelComponent"
+                        },
+                        {
+                            "name": "PageLayoutComponent"
+                        },
+                        {
+                            "name": "PagesLayoutComponent"
                         }
                     ]
                 },
@@ -405,7 +508,13 @@
                     "type": "exports",
                     "elements": [
                         {
-                            "name": "UiComponent"
+                            "name": "NavPanelComponent"
+                        },
+                        {
+                            "name": "PageLayoutComponent"
+                        },
+                        {
+                            "name": "PagesLayoutComponent"
                         }
                     ]
                 },
@@ -506,11 +615,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ui/src/lib/components/ui/ui.stories.ts",
+                "file": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<UiComponent>",
-                "defaultValue": "{\n  title: 'UI Components/UiComponent',\n  component: UiComponent,\n  render: (args: UiComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n}"
+                "type": "Meta<NavPanelComponent>",
+                "defaultValue": "{\n  title: 'UI Components/NavPanelComponent',\n  component: NavPanelComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, MatToolbarModule, MatIconModule, MatButtonModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: NavPanelComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n}"
             },
             {
                 "name": "preview",
@@ -536,7 +645,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ui/src/lib/components/ui/ui.stories.ts",
+                "file": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -602,8 +711,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<UiComponent>",
-                "file": "projects/ui/src/lib/components/ui/ui.stories.ts",
+                "rawtype": "StoryObj<NavPanelComponent>",
+                "file": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -728,22 +837,22 @@
                     "defaultValue": "{\n  title: 'Example/Page',\n  component: Page,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      declarations: [Button, Header],\n      imports: [CommonModule],\n    }),\n  ],\n}"
                 }
             ],
-            "projects/ui/src/lib/components/ui/ui.stories.ts": [
+            "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts": [
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/ui/src/lib/components/ui/ui.stories.ts",
+                    "file": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<UiComponent>",
-                    "defaultValue": "{\n  title: 'UI Components/UiComponent',\n  component: UiComponent,\n  render: (args: UiComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n}"
+                    "type": "Meta<NavPanelComponent>",
+                    "defaultValue": "{\n  title: 'UI Components/NavPanelComponent',\n  component: NavPanelComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, MatToolbarModule, MatIconModule, MatButtonModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: NavPanelComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n}"
                 },
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/ui/src/lib/components/ui/ui.stories.ts",
+                    "file": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -805,13 +914,13 @@
                     "kind": 183
                 }
             ],
-            "projects/ui/src/lib/components/ui/ui.stories.ts": [
+            "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<UiComponent>",
-                    "file": "projects/ui/src/lib/components/ui/ui.stories.ts",
+                    "rawtype": "StoryObj<NavPanelComponent>",
+                    "file": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -822,7 +931,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 4,
+        "count": 3,
         "status": "low",
         "files": [
             {
@@ -836,16 +945,16 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/ui/src/lib/components/ui/ui.component.ts",
+                "filePath": "projects/ui/src/lib/components/nav-panel/nav-panel.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "UiComponent",
+                "name": "NavPanelComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/ui/src/lib/components/ui/ui.stories.ts",
+                "filePath": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -855,11 +964,29 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/ui/src/lib/components/ui/ui.stories.ts",
+                "filePath": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui/src/lib/layouts/page-layout/page-layout.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PageLayoutComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui/src/lib/layouts/pages-layout/pages-layout.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PagesLayoutComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
