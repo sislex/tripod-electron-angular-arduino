@@ -6,23 +6,30 @@ import {NavPanelComponent} from './components/nav-panel/nav-panel.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { UserListComponent } from './components/user-list/user-list.component';
+import {MatCardModule} from '@angular/material/card';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
     PagesLayoutComponent,
     PageLayoutComponent,
     NavPanelComponent,
+    UserListComponent,
   ],
   imports: [
+    BrowserModule,
     MatSlideToggleModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
   ],
   exports: [
     PagesLayoutComponent,
     PageLayoutComponent,
     NavPanelComponent,
+    UserListComponent,
   ]
 })
 export class UiModule { }
