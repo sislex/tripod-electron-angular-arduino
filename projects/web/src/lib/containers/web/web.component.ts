@@ -14,6 +14,11 @@ export class WebComponent implements OnInit {
   @Input() channelName: string = '';
   getUsbList$ = this.store.pipe(select(getUsbList));
 
+  users = [
+    {id: 1, name: 'User1', role: 'admin'},
+    {id: 1, name: 'User2', role: 'admin'},
+  ];
+
   constructor(
     private readonly store: Store,
     private cdr: ChangeDetectorRef,
