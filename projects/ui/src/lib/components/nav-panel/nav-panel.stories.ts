@@ -4,13 +4,15 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {CommonModule} from '@angular/common';
+import {MatMenuModule} from '@angular/material/menu';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const meta: Meta<NavPanelComponent> = {
   title: 'UI Components/NavPanelComponent',
   component: NavPanelComponent,
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, MatToolbarModule, MatIconModule, MatButtonModule],
+      imports: [CommonModule, BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule],
     }),
     componentWrapperDecorator(
       (story) => `<div>${story}</div>`

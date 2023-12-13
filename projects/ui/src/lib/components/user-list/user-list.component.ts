@@ -1,6 +1,5 @@
-import {Component, Input} from '@angular/core';
-
-interface IUser {id: number, name: string, role: string};
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { IUser } from 'projects/web/src/lib/state/config/config.reducer';
 
 @Component({
   selector: 'user-list',
@@ -8,5 +7,13 @@ interface IUser {id: number, name: string, role: string};
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent {
-  @Input() users: IUser[] = [];
+  @Input() users: IUser[] | null = [];
+  @Output() emitter = new EventEmitter();
+
+  buttonClicked(user: IUser) {
+    this.emitter.emit({
+      event: 'UserListComponent:BUTTON_CLICKED',
+      data: {user},
+    });
+  }
 }

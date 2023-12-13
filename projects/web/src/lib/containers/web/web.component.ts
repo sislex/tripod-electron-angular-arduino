@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit} fr
 import {select, Store} from '@ngrx/store';
 import {getUsbList} from '../../state/usb/usb.selectors';
 import {sendMessage, setChannelNameAndSubscribe} from '../../state/messages/messages.actions';
+import {isUserLogin} from '../../state/account/account.selectors';
 
 @Component({
   selector: 'web',
@@ -12,12 +13,8 @@ import {sendMessage, setChannelNameAndSubscribe} from '../../state/messages/mess
 })
 export class WebComponent implements OnInit {
   @Input() channelName: string = '';
+  isUserLogin$ = this.store.pipe(select(isUserLogin));
   getUsbList$ = this.store.pipe(select(getUsbList));
-
-  users = [
-    {id: 1, name: 'User1', role: 'admin'},
-    {id: 1, name: 'User2', role: 'admin'},
-  ];
 
   constructor(
     private readonly store: Store,

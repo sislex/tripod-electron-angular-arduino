@@ -12,15 +12,24 @@ import {UiModule} from '../../../ui/src/lib/ui.module';
 import {WebComponent} from './containers/web/web.component';
 import {MainComponent} from './containers/main/main.component';
 import {NavPanelComponent} from './containers/nav-panel/nav-panel.component';
+import {AuthComponent} from './containers/auth/auth.component';
+import {ACCOUNT_FEATURE_KEY, accountReducer} from './state/account/account.reducer';
 
 const state = [
   StoreModule.forRoot({}),
   EffectsModule.forRoot([]),
+
   StoreModule.forFeature(CONFIG_FEATURE_KEY, configReducer),
+
+  StoreModule.forFeature(ACCOUNT_FEATURE_KEY, accountReducer),
+  // EffectsModule.forFeature(MessagesEffects),
+
   StoreModule.forFeature(MESSAGES_FEATURE_KEY, messagesReducer),
   EffectsModule.forFeature(MessagesEffects),
+
   StoreModule.forFeature(USB_FEATURE_KEY, usbReducer),
   EffectsModule.forFeature(UsbEffects),
+
   StoreDevtoolsModule.instrument(),
 ];
 
@@ -29,6 +38,7 @@ const state = [
     WebComponent,
     MainComponent,
     NavPanelComponent,
+    AuthComponent,
   ],
   imports: [
     ...state,

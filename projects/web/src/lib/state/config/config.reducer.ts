@@ -4,8 +4,9 @@ import * as ConfigActions from './config.actions';
 
 export const CONFIG_FEATURE_KEY = 'config';
 
+export interface IUser {id: number, name: string, role: string}
 export interface ConfigState {
-  // channelName: string;
+  userList: IUser[];
 }
 
 export interface ConfigPartialState {
@@ -13,7 +14,10 @@ export interface ConfigPartialState {
 }
 
 export const initialState: ConfigState = {
-  // channelName: '',
+  userList:[
+    {id: 1, name: 'User1', role: 'admin'},
+    {id: 2, name: 'User2', role: 'admin'},
+  ],
 };
 
 export const configReducer = createReducer(

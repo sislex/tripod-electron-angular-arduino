@@ -1,6 +1,8 @@
 <pages-layout>
-  <main-container *ngIf="false"></main-container>
-  <user-list [users]="users" *ngIf="true"></user-list>
+  <auth-container *ngIf="!(isUserLogin$ | async)"></auth-container>
+  <ng-container *ngIf="isUserLogin$ | async">
+    <main-container></main-container>
+  </ng-container>
 </pages-layout>
 
 

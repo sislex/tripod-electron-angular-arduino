@@ -6,6 +6,7 @@ import {NavPanelComponent} from './components/nav-panel/nav-panel.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
 import { UserListComponent } from './components/user-list/user-list.component';
 import {MatCardModule} from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,6 +25,7 @@ import { BrowserModule } from '@angular/platform-browser';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatMenuModule,
   ],
   exports: [
     PagesLayoutComponent,

@@ -1,9 +1,13 @@
-<mat-card class="cards"> 
+<mat-card class="cards">
   <mat-card-content>
     <h3>Log In</h3>
     <hr>
     <div *ngFor="let user of users">
-      <button mat-raised-button color="primary" class="example-icon" aria-label="Example icon-button with account icon">
+      <button
+        (click)="buttonClicked(user)"
+        mat-raised-button
+        color="primary"
+        class="example-icon">
         <mat-icon>account_circle</mat-icon>
         <span>{{user.name}}</span>
       </button>
