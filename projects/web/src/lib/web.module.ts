@@ -14,6 +14,7 @@ import {MainComponent} from './containers/main/main.component';
 import {NavPanelComponent} from './containers/nav-panel/nav-panel.component';
 import {AuthComponent} from './containers/auth/auth.component';
 import {ACCOUNT_FEATURE_KEY, accountReducer} from './state/account/account.reducer';
+import {AccountEffects} from './state/account/account.effects';
 
 const state = [
   StoreModule.forRoot({}),
@@ -22,7 +23,7 @@ const state = [
   StoreModule.forFeature(CONFIG_FEATURE_KEY, configReducer),
 
   StoreModule.forFeature(ACCOUNT_FEATURE_KEY, accountReducer),
-  // EffectsModule.forFeature(MessagesEffects),
+  EffectsModule.forFeature(AccountEffects),
 
   StoreModule.forFeature(MESSAGES_FEATURE_KEY, messagesReducer),
   EffectsModule.forFeature(MessagesEffects),

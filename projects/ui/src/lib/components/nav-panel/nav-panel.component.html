@@ -5,11 +5,12 @@
   <span>{{ message }}</span>
   <span class="example-spacer"></span>
   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
+    <mat-icon>settings</mat-icon>
   </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
+  <button [matMenuTriggerFor]="account"  mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>account_circle</mat-icon>
   </button>
+
   <mat-menu #menu="matMenu">
     <button mat-menu-item>
       <mat-icon>dialpad</mat-icon>
@@ -22,6 +23,13 @@
     <button mat-menu-item>
       <mat-icon>notifications_off</mat-icon>
       <span>Disable alerts</span>
+    </button>
+  </mat-menu>
+
+  <mat-menu #account="matMenu">
+    <button mat-menu-item (click)="buttonClicked('Sign out')">
+      <mat-icon>logout</mat-icon>
+      <span>Sign out</span>
     </button>
   </mat-menu>
 </mat-toolbar>

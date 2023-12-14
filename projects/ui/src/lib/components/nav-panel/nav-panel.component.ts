@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'nav-panel',
@@ -7,4 +7,12 @@ import {Component, Input} from '@angular/core';
 })
 export class NavPanelComponent {
   @Input() message: string = '';
+  @Output() emitter = new EventEmitter();
+
+  buttonClicked(note: string) {
+    this.emitter.emit({
+      event: 'NavPanelComponent:BUTTON_CLICKED',
+      data: {note},
+    });
+  }
 }

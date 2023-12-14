@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 
 import * as AccountActions from './account.actions';
+import {resetUser} from './account.actions';
 
 export const ACCOUNT_FEATURE_KEY = 'account';
 
@@ -23,6 +24,6 @@ export const initialState: AccountState = {
 export const accountReducer = createReducer(
   initialState,
   on(AccountActions.setUser, (state, {user}) => ({ ...state, ...user })),
-  // on(AccountActions.setChannelName, (state, {channelName}) => ({ ...state, channelName })),
+  on(AccountActions.resetUser, (state) => ({ ...initialState })),
 );
 
