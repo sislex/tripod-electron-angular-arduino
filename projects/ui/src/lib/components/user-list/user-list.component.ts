@@ -12,7 +12,7 @@ export class UserListComponent {
 
   buttonClicked(user: IUser) {
     this.emitter.emit({
-      event: 'UserListComponent:BUTTON_CLICKED',
+      event: 'UsbListComponent:BUTTON_CLICKED',
       data: {user},
     });
   }

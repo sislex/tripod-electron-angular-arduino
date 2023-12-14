@@ -10,6 +10,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { UserListComponent } from './components/user-list/user-list.component';
 import {MatCardModule} from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
+import {UsbListComponent} from './components/usb-list/usb-list.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { BrowserModule } from '@angular/platform-browser';
     PageLayoutComponent,
     NavPanelComponent,
     UserListComponent,
+    UsbListComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,7 @@ import { BrowserModule } from '@angular/platform-browser';
     PageLayoutComponent,
     NavPanelComponent,
     UserListComponent,
+    UsbListComponent,
   ]
 })
 export class UiModule { }

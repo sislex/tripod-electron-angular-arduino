@@ -1,0 +1,28 @@
+:host {
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    h3 {
+      flex: 0 0 auto;
+      margin: 0;
+    }
+
+    button {
+      flex: 0 0 48px;
+      margin: 0;
+    }
+  }
+}
+.cards {
+  width: 400px;
+  text-align: center;
+}
+.example-icon {
+  width: 80%;
+  text-align: center;
+  margin-top: 10px;
+}

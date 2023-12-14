@@ -15,6 +15,7 @@ import {NavPanelComponent} from './containers/nav-panel/nav-panel.component';
 import {AuthComponent} from './containers/auth/auth.component';
 import {ACCOUNT_FEATURE_KEY, accountReducer} from './state/account/account.reducer';
 import {AccountEffects} from './state/account/account.effects';
+import {UsbListComponent} from './containers/usb-list/usb-list.component';
 
 const state = [
   StoreModule.forRoot({}),
@@ -40,6 +41,7 @@ const state = [
     MainComponent,
     NavPanelComponent,
     AuthComponent,
+    UsbListComponent,
   ],
   imports: [
     ...state,

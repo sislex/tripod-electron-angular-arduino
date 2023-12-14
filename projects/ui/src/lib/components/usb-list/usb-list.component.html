@@ -1,0 +1,20 @@
+<mat-card class="cards">
+  <mat-card-content>
+    <div class="header">
+      <h3>USB Ports</h3>
+      <button mat-icon-button  (click)="getUsbList()">
+        <mat-icon>sync</mat-icon>
+      </button>
+    </div>
+    <hr>
+    <div *ngFor="let usb of usbList">
+      <button
+        mat-raised-button
+        color="primary"
+        class="example-icon">
+        <mat-icon>account_circle</mat-icon>
+        <span>{{usb}}</span>
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
