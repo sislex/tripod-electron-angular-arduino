@@ -30,7 +30,7 @@ export const Primary: Story = {
   args: {
     users: [
       {id: 1, name: 'User1', role: 'admin'},
-      {id: 1, name: 'User2', role: 'admin'},
+      {id: 2, name: 'User2', role: 'admin'},
     ],
   },
 };

@@ -2,48 +2,6 @@
     "pipes": [],
     "interfaces": [
         {
-            "name": "IUser",
-            "id": "interface-IUser-3a2874d5bfe9ccbd4e3350b1768ea883901e602113198defdbb0ba4352d5e3689ca596f54deb2fcf06e8a5766ea1eed77553f262d81a1fbb4a3f341c1552698c",
-            "file": "projects/ui/src/lib/components/user-list/user-list.component.ts",
-            "deprecated": false,
-            "deprecationMessage": "",
-            "type": "interface",
-            "sourceCode": "import {Component, Input} from '@angular/core';\n\ninterface IUser {id: number, name: string, role: string};\n\n@Component({\n  selector: 'user-list',\n  templateUrl: './user-list.component.html',\n  styleUrls: ['./user-list.component.scss']\n})\nexport class UserListComponent {\n  @Input() users: IUser[] = [];\n}\n",
-            "properties": [
-                {
-                    "name": "id",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "number",
-                    "optional": false,
-                    "description": "",
-                    "line": 3
-                },
-                {
-                    "name": "name",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 3
-                },
-                {
-                    "name": "role",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 3
-                }
-            ],
-            "indexSignatures": [],
-            "kind": 171,
-            "methods": [],
-            "extends": []
-        },
-        {
             "name": "User",
             "id": "interface-User-9c7e5f1bbbab702cb032307d130876cb68969b0cd4eedef32a0c8cad8081a54e5f8f577ed6ad4539c1b99a1d246cb34031d198c2ea8eba440e64e91b14f01fdc",
             "file": "projects/ui/src/stories/User.ts",
@@ -524,7 +482,7 @@
         },
         {
             "name": "UserListComponent",
-            "id": "component-UserListComponent-3a2874d5bfe9ccbd4e3350b1768ea883901e602113198defdbb0ba4352d5e3689ca596f54deb2fcf06e8a5766ea1eed77553f262d81a1fbb4a3f341c1552698c",
+            "id": "component-UserListComponent-24c2102cab4b3ae5e78ab308abf853c73fa83e2653bdd2de1b9a37cf41bc371687b40919373914df276b7366f637d47518945587222dc4bd8b37016da0b8cf49",
             "file": "projects/ui/src/lib/components/user-list/user-list.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -547,14 +505,52 @@
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
-                    "type": "IUser[]",
+                    "line": 10,
+                    "type": "IUser[] | null",
                     "decorators": []
                 }
             ],
-            "outputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "emitter",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "EventEmitter"
+                }
+            ],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "buttonClicked",
+                    "args": [
+                        {
+                            "name": "user",
+                            "type": "IUser",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 13,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "user",
+                            "type": "IUser",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -564,17 +560,17 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input} from '@angular/core';\n\ninterface IUser {id: number, name: string, role: string};\n\n@Component({\n  selector: 'user-list',\n  templateUrl: './user-list.component.html',\n  styleUrls: ['./user-list.component.scss']\n})\nexport class UserListComponent {\n  @Input() users: IUser[] = [];\n}\n",
+            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\nimport { IUser } from 'projects/web/src/lib/state/config/config.reducer';\n\n@Component({\n  selector: 'user-list',\n  templateUrl: './user-list.component.html',\n  styleUrls: ['./user-list.component.scss']\n})\nexport class UserListComponent {\n  @Input() users: IUser[] | null = [];\n  @Output() emitter = new EventEmitter();\n\n  buttonClicked(user: IUser) {\n    this.emitter.emit({\n      event: 'UserListComponent:BUTTON_CLICKED',\n      data: {user},\n    });\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".cards {\n  width: 90%;\n  max-width: 400px;\n  margin: auto;\n  text-align: center;\n  margin-top: 15%;\n}\n.example-icon {\n  width: 80%;\n  text-align: center;\n  margin-top: 10px;\n}",
+                    "data": ".cards {\n  width: 400px;\n  text-align: center;\n}\n.example-icon {\n  width: 80%;\n  text-align: center;\n  margin-top: 10px;\n}\n",
                     "styleUrl": "./user-list.component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<mat-card class=\"cards\"> \n  <mat-card-content>\n    <h3>Log In</h3>\n    <hr>\n    <div *ngFor=\"let user of users\">\n      <button mat-raised-button color=\"primary\" class=\"example-icon\" aria-label=\"Example icon-button with account icon\">\n        <mat-icon>account_circle</mat-icon>\n        <span>{{user.name}}</span>\n      </button>\n    </div>\n  </mat-card-content>\n</mat-card>\n"
+            "templateData": "<mat-card class=\"cards\">\n  <mat-card-content>\n    <h3>Log In</h3>\n    <hr>\n    <div *ngFor=\"let user of users\">\n      <button\n        (click)=\"buttonClicked(user)\"\n        mat-raised-button\n        color=\"primary\"\n        class=\"example-icon\">\n        <mat-icon>account_circle</mat-icon>\n        <span>{{user.name}}</span>\n      </button>\n    </div>\n  </mat-card-content>\n</mat-card>\n"
         }
     ],
     "modules": [
@@ -731,7 +727,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<NavPanelComponent>",
-                "defaultValue": "{\n  title: 'UI Components/NavPanelComponent',\n  component: NavPanelComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, MatToolbarModule, MatIconModule, MatButtonModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: NavPanelComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
+                "defaultValue": "{\n  title: 'UI Components/NavPanelComponent',\n  component: NavPanelComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: NavPanelComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
             },
             {
                 "name": "meta",
@@ -989,7 +985,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<NavPanelComponent>",
-                    "defaultValue": "{\n  title: 'UI Components/NavPanelComponent',\n  component: NavPanelComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, MatToolbarModule, MatIconModule, MatButtonModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: NavPanelComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
+                    "defaultValue": "{\n  title: 'UI Components/NavPanelComponent',\n  component: NavPanelComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: NavPanelComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
                 },
                 {
                     "name": "Primary",
@@ -1156,15 +1152,6 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "UserListComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/2",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ui/src/lib/components/user-list/user-list.component.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "IUser",
                 "coveragePercent": 0,
                 "coverageCount": "0/4",
                 "status": "low"
