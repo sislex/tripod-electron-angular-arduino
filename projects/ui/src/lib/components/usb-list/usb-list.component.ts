@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import { IUser } from 'projects/web/src/lib/state/config/config.reducer';
+import { IUsb } from 'projects/web/src/lib/state/usb/usb.reducer';
 
 @Component({
   selector: 'usb-list',
@@ -7,8 +7,10 @@ import { IUser } from 'projects/web/src/lib/state/config/config.reducer';
   styleUrls: ['./usb-list.component.scss']
 })
 export class UsbListComponent {
-  @Input() usbList: string[] | null = [];
+  @Input() usbList: IUsb[] | null = [];
   @Output() emitter = new EventEmitter();
+
+  displayedColumns: string[] = ['name', 'actions', 'status'];
 
   getUsbList() {
     this.emitter.emit({

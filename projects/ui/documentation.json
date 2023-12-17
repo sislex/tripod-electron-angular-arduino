@@ -2,6 +2,57 @@
     "pipes": [],
     "interfaces": [
         {
+            "name": "PeriodicElement",
+            "id": "interface-PeriodicElement-55e9ff454603df8b873d0c89d0f4424720d7a1af3ad9f8b621b9dc0095fcdcf2919cc886eaddec111c44bf50ec51851832ab37a5ffac154696b12e3357a59272",
+            "file": "projects/ui/src/lib/components/usb-list/usb-list.stories.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import {componentWrapperDecorator, Meta, moduleMetadata, StoryObj} from '@storybook/angular';\nimport {UsbListComponent} from './usb-list.component';\nimport {MatIconModule} from '@angular/material/icon';\nimport {MatButtonModule} from '@angular/material/button';\nimport {CommonModule} from '@angular/common';\nimport {MatCardModule} from '@angular/material/card';\nimport {MatTableModule} from '@angular/material/table';\n\nexport interface PeriodicElement {\n  name: string;\n  position: number;\n  weight: number;\n  symbol: string;\n}\n\nconst ELEMENT_DATA: PeriodicElement[] = [\n  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},\n  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},\n  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},\n  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},\n  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},\n  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},\n  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},\n  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},\n  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},\n  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},\n];\n\nconst meta: Meta<UsbListComponent> = {\n  title: 'UI Components/UsbListComponent',\n  component: UsbListComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, MatIconModule, MatButtonModule, MatCardModule, MatTableModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: UsbListComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n};\n\nexport default meta;\ntype Story = StoryObj<UsbListComponent>;\n\nexport const Primary: Story = {\n  args: {\n    usbList: [\n      {name: '/dev/tty.Buds2ProAlexey'},\n      {name: '/dev/tty.Bluetooth-Incoming-Port'},\n      {name: 'Lithium'},\n      {name: 'Fluorine'},\n      {name: 'Neon'},\n    ] ,\n  },\n};\n",
+            "properties": [
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "position",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "symbol",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "weight",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
             "name": "User",
             "id": "interface-User-9c7e5f1bbbab702cb032307d130876cb68969b0cd4eedef32a0c8cad8081a54e5f8f577ed6ad4539c1b99a1d246cb34031d198c2ea8eba440e64e91b14f01fdc",
             "file": "projects/ui/src/stories/User.ts",
@@ -520,7 +571,7 @@
         },
         {
             "name": "UsbListComponent",
-            "id": "component-UsbListComponent-94e519a1ff13904d3874c9662f713b356b05deaaa4b8e10f77931db80ef3b24984c9121b662b48b39ab2917a7add33746fc04ca911a49bb2c1ec0b1970552b12",
+            "id": "component-UsbListComponent-20248d9ab79993709709add96253c3f0a24a71e3766ccb2f42f48f1f016dc8c2c7f327ef43e225bd97027cccca1ec04c0f34c7eaaa3f697bfbac44453f69a52e",
             "file": "projects/ui/src/lib/components/usb-list/usb-list.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -544,7 +595,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 10,
-                    "type": "string[] | null",
+                    "type": "any",
                     "decorators": []
                 }
             ],
@@ -558,7 +609,18 @@
                     "type": "EventEmitter"
                 }
             ],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "displayedColumns",
+                    "defaultValue": "['position', 'name', 'weight', 'symbol']",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                }
+            ],
             "methodsClass": [
                 {
                     "name": "getUsbList",
@@ -566,7 +628,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 13,
+                    "line": 15,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -580,7 +642,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\nimport { IUser } from 'projects/web/src/lib/state/config/config.reducer';\n\n@Component({\n  selector: 'usb-list',\n  templateUrl: './usb-list.component.html',\n  styleUrls: ['./usb-list.component.scss']\n})\nexport class UsbListComponent {\n  @Input() usbList: string[] | null = [];\n  @Output() emitter = new EventEmitter();\n\n  getUsbList() {\n    this.emitter.emit({\n      event: 'UsbListComponent:BUTTON_CLICKED',\n      data: {message: 'GET_USB_DEVICES'},\n    });\n  }\n\n  // buttonClicked(user: IUser) {\n  //   this.emitter.emit({\n  //     event: 'UsbListComponent:BUTTON_CLICKED',\n  //     data: {user},\n  //   });\n  // }\n}\n",
+            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\nimport { IUsb } from 'projects/web/src/lib/state/usb/usb.reducer';\n\n@Component({\n  selector: 'usb-list',\n  templateUrl: './usb-list.component.html',\n  styleUrls: ['./usb-list.component.scss']\n})\nexport class UsbListComponent {\n  @Input() usbList: any = [];\n  @Output() emitter = new EventEmitter();\n\n  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];\n\n  getUsbList() {\n    this.emitter.emit({\n      event: 'UsbListComponent:BUTTON_CLICKED',\n      data: {message: 'GET_USB_DEVICES'},\n    });\n  }\n\n  // buttonClicked(user: IUser) {\n  //   this.emitter.emit({\n  //     event: 'UsbListComponent:BUTTON_CLICKED',\n  //     data: {user},\n  //   });\n  // }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -590,7 +652,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<mat-card class=\"cards\">\n  <mat-card-content>\n    <div class=\"header\">\n      <h3>USB Ports</h3>\n      <button mat-icon-button  (click)=\"getUsbList()\">\n        <mat-icon>sync</mat-icon>\n      </button>\n    </div>\n    <hr>\n    <div *ngFor=\"let usb of usbList\">\n      <button\n        mat-raised-button\n        color=\"primary\"\n        class=\"example-icon\">\n        <mat-icon>account_circle</mat-icon>\n        <span>{{usb}}</span>\n      </button>\n    </div>\n  </mat-card-content>\n</mat-card>\n"
+            "templateData": "<mat-card class=\"cards\">\n  <mat-card-content>\n    <div class=\"header\">\n      <h3>USB Ports</h3>\n      <button mat-icon-button  (click)=\"getUsbList()\">\n        <mat-icon>sync</mat-icon>\n      </button>\n    </div>\n    <hr>\n\n\n\n    <table mat-table [dataSource]=\"usbList\" class=\"mat-elevation-z8 demo-table\">\n      <!-- Position Column -->\n      <ng-container matColumnDef=\"position\">\n        <th mat-header-cell *matHeaderCellDef>No.</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.position}}</td>\n      </ng-container>\n\n      <!-- Name Column -->\n      <ng-container matColumnDef=\"name\">\n        <th mat-header-cell *matHeaderCellDef>Name</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.name}}</td>\n      </ng-container>\n\n      <!-- Weight Column -->\n      <ng-container matColumnDef=\"weight\">\n        <th mat-header-cell *matHeaderCellDef>Weight</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.weight}}</td>\n      </ng-container>\n\n      <!-- Symbol Column -->\n      <ng-container matColumnDef=\"symbol\">\n        <th mat-header-cell *matHeaderCellDef>Symbol</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.symbol}}</td>\n      </ng-container>\n\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n      <tr\n        mat-row\n        *matRowDef=\"let row; columns: displayedColumns;\"\n      ></tr>\n    </table>\n\n\n\n\n    <div *ngFor=\"let usb of usbList\">\n      <button\n        mat-raised-button\n        color=\"primary\"\n        class=\"example-icon\">\n        <mat-icon>account_circle</mat-icon>\n        <span>{{usb.name}}</span>\n      </button>\n    </div>\n  </mat-card-content>\n</mat-card>\n"
         },
         {
             "name": "UserListComponent",
@@ -688,13 +750,13 @@
     "modules": [
         {
             "name": "UiModule",
-            "id": "module-UiModule-ef337cedb87136787b730ec64fd98d55ade7726e07fd4d60a80e4dde917c982e52b95d909bf4a0bd3c9ab4f4f23234e6a32740ce0fa89b2f43b70d03446307e2",
+            "id": "module-UiModule-1bbf07ca8ab9edf9b6b2b5da8286c79b56effed58a2dd105e1203285aec93ef26659d31ab56781fa7dfd02021e10e236715e8c91236f06be8526cd95809aa6ce",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/ui/src/lib/ui.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport {MatSlideToggleModule} from '@angular/material/slide-toggle';\nimport {PageLayoutComponent} from './layouts/page-layout/page-layout.component';\nimport {PagesLayoutComponent} from './layouts/pages-layout/pages-layout.component';\nimport {NavPanelComponent} from './components/nav-panel/nav-panel.component';\nimport {MatToolbarModule} from '@angular/material/toolbar';\nimport {MatIconModule} from '@angular/material/icon';\nimport {MatButtonModule} from '@angular/material/button';\nimport {MatMenuModule} from '@angular/material/menu';\nimport { UserListComponent } from './components/user-list/user-list.component';\nimport {MatCardModule} from '@angular/material/card';\nimport { BrowserModule } from '@angular/platform-browser';\nimport {UsbListComponent} from './components/usb-list/usb-list.component';\n\n@NgModule({\n  declarations: [\n    PagesLayoutComponent,\n    PageLayoutComponent,\n    NavPanelComponent,\n    UserListComponent,\n    UsbListComponent,\n  ],\n  imports: [\n    BrowserModule,\n    MatSlideToggleModule,\n    MatToolbarModule,\n    MatIconModule,\n    MatButtonModule,\n    MatCardModule,\n    MatMenuModule,\n  ],\n  exports: [\n    PagesLayoutComponent,\n    PageLayoutComponent,\n    NavPanelComponent,\n    UserListComponent,\n    UsbListComponent,\n  ]\n})\nexport class UiModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport {MatSlideToggleModule} from '@angular/material/slide-toggle';\nimport {PageLayoutComponent} from './layouts/page-layout/page-layout.component';\nimport {PagesLayoutComponent} from './layouts/pages-layout/pages-layout.component';\nimport {NavPanelComponent} from './components/nav-panel/nav-panel.component';\nimport {MatToolbarModule} from '@angular/material/toolbar';\nimport {MatIconModule} from '@angular/material/icon';\nimport {MatButtonModule} from '@angular/material/button';\nimport {MatMenuModule} from '@angular/material/menu';\nimport { UserListComponent } from './components/user-list/user-list.component';\nimport {MatCardModule} from '@angular/material/card';\nimport { BrowserModule } from '@angular/platform-browser';\nimport {UsbListComponent} from './components/usb-list/usb-list.component';\nimport {MatTableModule} from '@angular/material/table';\n\n@NgModule({\n  declarations: [\n    PagesLayoutComponent,\n    PageLayoutComponent,\n    NavPanelComponent,\n    UserListComponent,\n    UsbListComponent,\n  ],\n  imports: [\n    BrowserModule,\n    MatSlideToggleModule,\n    MatToolbarModule,\n    MatIconModule,\n    MatButtonModule,\n    MatCardModule,\n    MatMenuModule,\n    MatTableModule\n  ],\n  exports: [\n    PagesLayoutComponent,\n    PageLayoutComponent,\n    NavPanelComponent,\n    UserListComponent,\n    UsbListComponent,\n  ]\n})\nexport class UiModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -757,6 +819,16 @@
     ],
     "miscellaneous": {
         "variables": [
+            {
+                "name": "ELEMENT_DATA",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui/src/lib/components/usb-list/usb-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "PeriodicElement[]",
+                "defaultValue": "[\n  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},\n  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},\n  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},\n  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},\n  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},\n  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},\n  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},\n  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},\n  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},\n  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},\n]"
+            },
             {
                 "name": "Large",
                 "ctype": "miscellaneous",
@@ -841,11 +913,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<NavPanelComponent>",
+                "defaultValue": "{\n  title: 'UI Components/NavPanelComponent',\n  component: NavPanelComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: NavPanelComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/ui/src/lib/components/usb-list/usb-list.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<UsbListComponent>",
-                "defaultValue": "{\n  title: 'UI Components/UsbListComponent',\n  component: UsbListComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, MatIconModule, MatButtonModule, MatCardModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: UsbListComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
+                "defaultValue": "{\n  title: 'UI Components/UsbListComponent',\n  component: UsbListComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, MatIconModule, MatButtonModule, MatCardModule, MatTableModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: UsbListComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
             },
             {
                 "name": "meta",
@@ -855,17 +937,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<UserListComponent>",
-                "defaultValue": "{\n  title: 'UI Components/UsbListComponent',\n  component: UserListComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, MatIconModule, MatButtonModule, MatCardModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: UserListComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<NavPanelComponent>",
-                "defaultValue": "{\n  title: 'UI Components/NavPanelComponent',\n  component: NavPanelComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: NavPanelComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
+                "defaultValue": "{\n  title: 'UI Components/UserListComponent',\n  component: UserListComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, MatIconModule, MatButtonModule, MatCardModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: UserListComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
             },
             {
                 "name": "preview",
@@ -891,11 +963,21 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    message: 'Our message',\n  },\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/ui/src/lib/components/usb-list/usb-list.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    usbList: [\n      '/dev/tty.Buds2ProAlexey',\n      '/dev/tty.Bluetooth-Incoming-Port',\n    ],\n  },\n}"
+                "defaultValue": "{\n  args: {\n    usbList: [\n      {name: '/dev/tty.Buds2ProAlexey'},\n      {name: '/dev/tty.Bluetooth-Incoming-Port'},\n      {name: 'Lithium'},\n      {name: 'Fluorine'},\n      {name: 'Neon'},\n    ] ,\n  },\n}"
             },
             {
                 "name": "Primary",
@@ -906,16 +988,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    users: [\n      {id: 1, name: 'User1', role: 'admin'},\n      {id: 2, name: 'User2', role: 'admin'},\n    ],\n  },\n}"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    message: 'Our message',\n  },\n}"
             },
             {
                 "name": "Secondary",
@@ -977,6 +1049,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<NavPanelComponent>",
+                "file": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<UsbListComponent>",
                 "file": "projects/ui/src/lib/components/usb-list/usb-list.stories.ts",
                 "deprecated": false,
@@ -994,21 +1077,42 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<NavPanelComponent>",
-                "file": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
             }
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/ui/src/lib/components/usb-list/usb-list.stories.ts": [
+                {
+                    "name": "ELEMENT_DATA",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui/src/lib/components/usb-list/usb-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "PeriodicElement[]",
+                    "defaultValue": "[\n  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},\n  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},\n  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},\n  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},\n  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},\n  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},\n  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},\n  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},\n  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},\n  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},\n]"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui/src/lib/components/usb-list/usb-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<UsbListComponent>",
+                    "defaultValue": "{\n  title: 'UI Components/UsbListComponent',\n  component: UsbListComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, MatIconModule, MatButtonModule, MatCardModule, MatTableModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: UsbListComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui/src/lib/components/usb-list/usb-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    usbList: [\n      {name: '/dev/tty.Buds2ProAlexey'},\n      {name: '/dev/tty.Bluetooth-Incoming-Port'},\n      {name: 'Lithium'},\n      {name: 'Fluorine'},\n      {name: 'Neon'},\n    ] ,\n  },\n}"
+                }
+            ],
             "projects/ui/src/stories/Button.stories.ts": [
                 {
                     "name": "Large",
@@ -1125,50 +1229,6 @@
                     "defaultValue": "{\n  title: 'Example/Page',\n  component: Page,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      declarations: [Button, Header],\n      imports: [CommonModule],\n    }),\n  ],\n}"
                 }
             ],
-            "projects/ui/src/lib/components/usb-list/usb-list.stories.ts": [
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui/src/lib/components/usb-list/usb-list.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<UsbListComponent>",
-                    "defaultValue": "{\n  title: 'UI Components/UsbListComponent',\n  component: UsbListComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, MatIconModule, MatButtonModule, MatCardModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: UsbListComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui/src/lib/components/usb-list/usb-list.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    usbList: [\n      '/dev/tty.Buds2ProAlexey',\n      '/dev/tty.Bluetooth-Incoming-Port',\n    ],\n  },\n}"
-                }
-            ],
-            "projects/ui/src/lib/components/user-list/user-list.stories.ts": [
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui/src/lib/components/user-list/user-list.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<UserListComponent>",
-                    "defaultValue": "{\n  title: 'UI Components/UsbListComponent',\n  component: UserListComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, MatIconModule, MatButtonModule, MatCardModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: UserListComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui/src/lib/components/user-list/user-list.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    users: [\n      {id: 1, name: 'User1', role: 'admin'},\n      {id: 2, name: 'User2', role: 'admin'},\n    ],\n  },\n}"
-                }
-            ],
             "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts": [
                 {
                     "name": "meta",
@@ -1189,6 +1249,28 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\n  args: {\n    message: 'Our message',\n  },\n}"
+                }
+            ],
+            "projects/ui/src/lib/components/user-list/user-list.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui/src/lib/components/user-list/user-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<UserListComponent>",
+                    "defaultValue": "{\n  title: 'UI Components/UserListComponent',\n  component: UserListComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, MatIconModule, MatButtonModule, MatCardModule],\n    }),\n    componentWrapperDecorator(\n      (story) => `<div>${story}</div>`\n    ),\n  ],\n  render: (args: UserListComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui/src/lib/components/user-list/user-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    users: [\n      {id: 1, name: 'User1', role: 'admin'},\n      {id: 2, name: 'User2', role: 'admin'},\n    ],\n  },\n}"
                 }
             ],
             "projects/ui/.storybook/preview.ts": [
@@ -1246,6 +1328,19 @@
                     "kind": 183
                 }
             ],
+            "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<NavPanelComponent>",
+                    "file": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "projects/ui/src/lib/components/usb-list/usb-list.stories.ts": [
                 {
                     "name": "Story",
@@ -1266,19 +1361,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<UserListComponent>",
                     "file": "projects/ui/src/lib/components/user-list/user-list.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<NavPanelComponent>",
-                    "file": "projects/ui/src/lib/components/nav-panel/nav-panel.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1337,7 +1419,26 @@
                 "linktype": "component",
                 "name": "UsbListComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui/src/lib/components/usb-list/usb-list.stories.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "PeriodicElement",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui/src/lib/components/usb-list/usb-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ELEMENT_DATA",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

@@ -5,9 +5,13 @@ import {setUsbList} from './usb.actions';
 
 export const USB_FEATURE_KEY = 'usb';
 
+export interface IUsb {
+  name: string;
+}
+
 export interface UsbState {
   selectedUsb: string;
-  usbList: string[];
+  usbList: IUsb[];
 }
 
 export interface UsbPartialState {

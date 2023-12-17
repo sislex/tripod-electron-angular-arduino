@@ -17,7 +17,7 @@ export class MessagesFromElectronService {
 
   events(message: IMessage) {
     if (message.event === 'USB_DEVICES') {
-      const usbList = message.data.map((usb: any) => usb.path);
+      const usbList = message.data.map((usb: any) => ({name: usb.path}));
       this.store.dispatch(setUsbList({ usbList }));
     }
   }

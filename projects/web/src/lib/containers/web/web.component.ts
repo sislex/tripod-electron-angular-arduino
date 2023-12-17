@@ -4,6 +4,7 @@ import {getUsbList} from '../../state/usb/usb.selectors';
 import {sendMessage, setChannelNameAndSubscribe} from '../../state/messages/messages.actions';
 import {isUserLogin} from '../../state/account/account.selectors';
 import {getUserFromLocalStorage} from '../../state/account/account.actions';
+import {IUsb} from '../../state/usb/usb.reducer';
 
 @Component({
   selector: 'web',
@@ -22,7 +23,7 @@ export class WebComponent implements OnInit {
     private cdr: ChangeDetectorRef,
   ) {
     this.store.dispatch(getUserFromLocalStorage());
-    this.getUsbList$.subscribe((usbList: string[]) => {
+    this.getUsbList$.subscribe((usbList: IUsb[]) => {
       // Когда шлю данные в usbList, то они не отображаются в шаблоне, пока не вызову detectChanges()
       setTimeout(() => {this.cdr.detectChanges();}, 0);
     });

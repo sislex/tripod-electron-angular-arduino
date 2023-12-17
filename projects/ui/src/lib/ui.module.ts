@@ -11,6 +11,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import {MatCardModule} from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
 import {UsbListComponent} from './components/usb-list/usb-list.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {UsbListComponent} from './components/usb-list/usb-list.component';
     MatButtonModule,
     MatCardModule,
     MatMenuModule,
+    MatTableModule
   ],
   exports: [
     PagesLayoutComponent,
