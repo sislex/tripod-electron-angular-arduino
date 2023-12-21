@@ -22,11 +22,17 @@ export class WebComponent implements OnInit {
     private readonly store: Store,
     private cdr: ChangeDetectorRef,
   ) {
-    this.store.dispatch(getUserFromLocalStorage());
     this.getUsbList$.subscribe((usbList: IUsb[]) => {
       // Когда шлю данные в usbList, то они не отображаются в шаблоне, пока не вызову detectChanges()
       setTimeout(() => {this.cdr.detectChanges();}, 0);
     });
+
+
+    setTimeout(() => {
+      this.store.dispatch(getUserFromLocalStorage());
+      this.store.dispatch(sendMessage({message: {event: 'GET_USB_DEVICES'}}));
+      }, 0);
+
   }
 
   ngOnInit() {

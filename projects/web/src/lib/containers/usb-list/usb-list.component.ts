@@ -20,8 +20,10 @@ export class UsbListComponent {
   events($event: any) {
     // console.log($event);
     if ($event.event === 'UsbListComponent:BUTTON_CLICKED' && $event.data.message === 'GET_USB_DEVICES') {
-      const message = {event: 'GET_USB_DEVICES'};
-      this.store.dispatch(sendMessage({message}));
+      this.store.dispatch(sendMessage({message: {event: 'GET_USB_DEVICES'}}));
+    } else if ($event.event === 'UsbListComponent:BUTTON_CLICKED' && $event.data.message === 'CONNECT_USB_DEVICE') {
+      console.log($event.data.note);
+      this.store.dispatch(sendMessage({message: {event: 'CONNECT_USB_DEVICE', data: $event.data.note}}));
     }
   }
 }

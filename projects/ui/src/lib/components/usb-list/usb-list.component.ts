@@ -12,10 +12,10 @@ export class UsbListComponent {
 
   displayedColumns: string[] = ['name', 'actions', 'status'];
 
-  getUsbList() {
+  buttonClick(message: string, note: any = {}) {
     this.emitter.emit({
       event: 'UsbListComponent:BUTTON_CLICKED',
-      data: {message: 'GET_USB_DEVICES'},
+      data: {message, note},
     });
   }
 
