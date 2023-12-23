@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "tripod-electron-angular-arduino:build:production"
+              "buildTarget": "tripod-electron-angular-arduino:build:production"
             },
             "development": {
-              "browserTarget": "tripod-electron-angular-arduino:build:development"
+              "buildTarget": "tripod-electron-angular-arduino:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tripod-electron-angular-arduino:build"
+            "buildTarget": "tripod-electron-angular-arduino:build"
           }
         },
         "test": {
